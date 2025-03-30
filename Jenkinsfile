@@ -1,9 +1,5 @@
 pipeline {
     agent any
-
-    triggers {
-        githubPush()
-    }
     
     environment {
         NODE_VERSION = '22'
@@ -33,5 +29,9 @@ pipeline {
                 echo "Jenkins URL: ${env.JENKINS_URL}"
             }
         }
+    }
+
+    triggers {
+        githubPush()
     }
 }
