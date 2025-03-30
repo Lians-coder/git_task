@@ -1,7 +1,3 @@
-checkout scmGit(
-    branches: [[name: 'main']],
-    userRemoteConfigs: [[url: 'https://github.com/jenkinsci/git-plugin.git']])
-    
 pipeline {
     agent any
     
@@ -16,7 +12,11 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/Lians-coder/git_task.git'
+                script {
+                    node {
+                        checkout scm
+                    }
+                }
             }
         }
         stage('Install Node.js') {
