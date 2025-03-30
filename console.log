@@ -1,0 +1,144 @@
+Started by user Kateryna Kravchuk
+Obtained Jenkinsfile from git https://github.com/Lians-coder/git_task.git
+[Pipeline] Start of Pipeline
+[Pipeline] node
+Running on Jenkins in /var/lib/jenkins/workspace/from-github
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Declarative: Checkout SCM)
+[Pipeline] checkout
+Selected Git installation does not exist. Using Default
+The recommended git tool is: NONE
+No credentials specified
+ > git rev-parse --resolve-git-dir /var/lib/jenkins/workspace/from-github/.git # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url https://github.com/Lians-coder/git_task.git # timeout=10
+Fetching upstream changes from https://github.com/Lians-coder/git_task.git
+ > git --version # timeout=10
+ > git --version # 'git version 2.43.0'
+ > git fetch --tags --force --progress -- https://github.com/Lians-coder/git_task.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git rev-parse refs/remotes/origin/main^{commit} # timeout=10
+Checking out Revision c048be5d588a0a0cda4487508431049f5236cf8e (refs/remotes/origin/main)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f c048be5d588a0a0cda4487508431049f5236cf8e # timeout=10
+Commit message: "updated jenkinsfile to trigger workflow"
+ > git rev-list --no-walk 1ff4a234f9cafde79c95bbc4276f12c37f86a8c3 # timeout=10
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Checkout)
+[Pipeline] script
+[Pipeline] {
+[Pipeline] node
+Running on Jenkins in /var/lib/jenkins/workspace/from-github@2
+[Pipeline] {
+[Pipeline] checkout
+Selected Git installation does not exist. Using Default
+The recommended git tool is: NONE
+No credentials specified
+ > git rev-parse --resolve-git-dir /var/lib/jenkins/workspace/from-github@2/.git # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url https://github.com/Lians-coder/git_task.git # timeout=10
+Fetching upstream changes from https://github.com/Lians-coder/git_task.git
+ > git --version # timeout=10
+ > git --version # 'git version 2.43.0'
+ > git fetch --tags --force --progress -- https://github.com/Lians-coder/git_task.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git rev-parse refs/remotes/origin/main^{commit} # timeout=10
+Checking out Revision c048be5d588a0a0cda4487508431049f5236cf8e (refs/remotes/origin/main)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f c048be5d588a0a0cda4487508431049f5236cf8e # timeout=10
+Commit message: "updated jenkinsfile to trigger workflow"
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] }
+[Pipeline] // script
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Install Node.js)
+[Pipeline] script
+[Pipeline] {
+[Pipeline] echo
+Preparation ...
+[Pipeline] echo
+Downloading Node.js & npm ...
+[Pipeline] sh
++ curl -fsSL https://deb.nodesource.com/setup_22.x
++ sudo -E bash -
+[38;5;79m2025-03-30 12:14:33 - Installing pre-requisites[0m
+Hit:1 http://security.ubuntu.com/ubuntu noble-security InRelease
+Ign:2 https://pkg.jenkins.io/debian-stable binary/ InRelease
+Hit:3 https://deb.nodesource.com/node_22.x nodistro InRelease
+Hit:4 http://us.archive.ubuntu.com/ubuntu noble InRelease
+Hit:5 https://pkg.jenkins.io/debian-stable binary/ Release
+Hit:6 http://us.archive.ubuntu.com/ubuntu noble-updates InRelease
+Hit:7 http://us.archive.ubuntu.com/ubuntu noble-backports InRelease
+Hit:8 https://ngrok-agent.s3.amazonaws.com buster InRelease
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+apt-transport-https is already the newest version (2.7.14build2).
+ca-certificates is already the newest version (20240203).
+curl is already the newest version (8.5.0-2ubuntu10.6).
+gnupg is already the newest version (2.4.4-2ubuntu17).
+0 upgraded, 0 newly installed, 0 to remove and 87 not upgraded.
+Hit:1 https://deb.nodesource.com/node_22.x nodistro InRelease
+Ign:2 https://pkg.jenkins.io/debian-stable binary/ InRelease
+Hit:3 http://us.archive.ubuntu.com/ubuntu noble InRelease
+Hit:4 http://security.ubuntu.com/ubuntu noble-security InRelease
+Hit:5 https://pkg.jenkins.io/debian-stable binary/ Release
+Hit:6 http://us.archive.ubuntu.com/ubuntu noble-updates InRelease
+Hit:7 http://us.archive.ubuntu.com/ubuntu noble-backports InRelease
+Hit:8 https://ngrok-agent.s3.amazonaws.com buster InRelease
+Reading package lists...
+[1;34m2025-03-30 12:14:49 - Repository configured successfully.[0m
+[38;5;79m2025-03-30 12:14:49 - To install Node.js, run: apt-get install nodejs -y[0m
+[38;5;79m2025-03-30 12:14:49 - You can use N|solid Runtime as a node.js alternative[0m
+[1;32m2025-03-30 12:14:49 - To install N|solid Runtime, run: apt-get install nsolid -y 
+[0m
+[Pipeline] echo
+Installing Node.js & npm ...
+[Pipeline] sh
++ sudo apt-get install -y nodejs
+Reading package lists...
+Building dependency tree...
+Reading state information...
+nodejs is already the newest version (22.14.0-1nodesource1).
+0 upgraded, 0 newly installed, 0 to remove and 87 not upgraded.
+[Pipeline] }
+[Pipeline] // script
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Build)
+[Pipeline] echo
+Building ...
+[Pipeline] sh
++ echo NPM:
+NPM:
+[Pipeline] sh
++ npm -v
+10.9.2
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Test)
+[Pipeline] echo
+Testing ...
+[Pipeline] echo
+Jenkins URL: https://hermit-golden-lemming.ngrok-free.app/
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+Finished: SUCCESS
