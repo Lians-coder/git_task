@@ -5,10 +5,6 @@ pipeline {
         NODE_VERSION = '22'
     }
 
-    triggers {
-        githubPush()
-    }
-
     stages {
         stage('Checkout') {
             steps {
