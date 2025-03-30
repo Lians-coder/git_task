@@ -1,3 +1,7 @@
+checkout scmGit(
+    branches: [[name: 'main']],
+    userRemoteConfigs: [[url: 'https://github.com/jenkinsci/git-plugin.git']])
+    
 pipeline {
     agent any
     
@@ -5,7 +9,16 @@ pipeline {
         NODE_VERSION = '22'
     }
 
+    triggers {
+        githubPush()
+    }
+
     stages {
+        stage('Checkout') {
+            steps {
+                git branch: 'main', url: 'https://github.com/Lians-coder/git_task.git'
+            }
+        }
         stage('Install Node.js') {
             steps {
                 script {
@@ -20,7 +33,8 @@ pipeline {
         stage('Build') {
             steps {
                 echo "Building ..."
-                sh "echo 'NPM: $(npm -v)'"
+                sh "echo NPM:"
+                sh "npm -v"
             }
         }
         stage('Test') {
@@ -29,9 +43,5 @@ pipeline {
                 echo "Jenkins URL: ${env.JENKINS_URL}"
             }
         }
-    }
-
-    triggers {
-        githubPush()
     }
 }
